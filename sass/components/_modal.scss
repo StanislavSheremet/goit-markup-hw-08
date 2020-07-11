@@ -1,0 +1,324 @@
+.form {
+  &-container {
+    position: absolute;
+    width: 528px;
+    height: 581px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    border-radius: 4px;
+    background-color: #ffffff;
+    box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.2), 0px 1px 1px rgba(0, 0, 0, 0.14),
+      0px 1px 3px rgba(0, 0, 0, 0.12);
+
+    @media screen and (max-width: 767px) {
+      width: 100%;
+      height: auto;
+    }
+
+    @media screen and (min-width: 768px) and (max-width: 1199px) {
+      width: 450px;
+      height: 609px;
+      text-align: center;
+    }
+  }
+
+  &-title {
+    margin-bottom: 30px;
+
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 1.15;
+    color: $title-color;
+  }
+
+  &-window {
+    width: 100%;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* Форма заявки */
+/* бекдроп для модалки */
+.backdrop {
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 1;
+  visibility: visible;
+
+  @include transition(opacity);
+}
+
+.is-hidden {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.close-btn {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  border-radius: 50%;
+  padding: 0;
+  border: none;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+  cursor: pointer;
+
+  box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.2), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 1px 3px rgba(0, 0, 0, 0.12);
+
+  &:focus {
+    border: solid 2px #2196f3;
+  }
+
+  &:hover {
+    fill: $accent-color;
+  }
+}
+
+.form-input {
+  width: 100%;
+  margin: 0;
+  padding: 11px 11px 11px 42px;
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+
+  &:focus ~ .name-icon {
+    fill: $accent-color;
+  }
+
+  &:focus + label {
+    color: $accent-color;
+  }
+
+  &:focus {
+    outline-color: $accent-color;
+  }
+
+  &:focus + label {
+    transform: translate(-30px, -40px);
+
+    font-size: 12px;
+    @include transition(transform);
+  }
+
+  &:not(:placeholder-shown) + label {
+    font-size: 12px;
+  }
+
+  &:focus + label,
+  &:focus ~ .telephone-icon {
+    fill: $accent-color;
+  }
+
+  &:not(:placeholder-shown) + label {
+    transform: translate(-30px, -40px);
+  }
+}
+
+.name-icon {
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  top: 50%;
+  left: 19px;
+  transform: translateY(-50%);
+  fill: #000000;
+
+  @include transition(fill);
+}
+
+.wrapper-input {
+  margin-bottom: 28px;
+  position: relative;
+  width: 100%;
+
+  & > label {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 42px;
+
+    @include transition(transform);
+  }
+}
+
+.telephone-icon {
+  position: absolute;
+  width: 13px;
+  height: 13px;
+  top: 50%;
+  left: 19px;
+  fill: #000000;
+  transform: translateY(-50%);
+
+  @include transition(fill);
+}
+
+.enter-comment {
+  width: 100%;
+  position: relative;
+
+  & > label {
+    position: absolute;
+    top: 17px;
+    left: 16px;
+
+    @include transition(transform);
+  }
+}
+
+.field-comment {
+  display: block;
+  width: 100%;
+  height: 120px;
+  padding: 16px 12px;
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+
+  &:focus {
+    outline-color: $accent-color;
+  }
+
+  &:focus + label {
+    transform: translate(-1px, -35px);
+    color: $accent-color;
+
+    font-size: 12px;
+    @include transition(transform);
+  }
+
+  &:not(:placeholder-shown) + label {
+    font-size: 12px;
+  }
+
+  &:focus + label,
+  &:not(:placeholder-shown) + label {
+    transform: translate(-1px, -35px);
+  }
+}
+
+textarea {
+  resize: none;
+}
+
+.agree-label {
+  display: flex;
+  align-items: center;
+
+  font-size: 14px;
+  line-height: 1.71;
+
+  @media screen and (max-width: 767px) {
+    width: max-content;
+    font-size: 12px;
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1199px) {
+    display: inline-flex;
+    font-size: 12px;
+    white-space: nowrap;
+  }
+}
+
+.checkbox {
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+
+  position: absolute;
+
+  &-container {
+    margin-top: 20px;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &:checked + .icon-check {
+    background-color: $accent-color;
+    background-origin: border-box;
+    border: none;
+  }
+
+  &:focus + .icon-check {
+    background-color: $accent-color;
+    background-origin: border-box;
+    border: none;
+  }
+
+  &:focus:checked + .icon-check {
+    background-color: $accent-color;
+    background-origin: border-box;
+    border: none;
+  }
+
+  &:focus:not(:checked) + .icon-check {
+    background-color: transparent;
+    border: 1px solid $accent-color;
+  }
+}
+
+.icon-check {
+  margin-right: 8px;
+  width: 15px;
+  height: 15px;
+
+  border: 1px solid #000000;
+  border-radius: 3px;
+  fill: #fff;
+}
+
+.conditions-contract {
+  margin-left: 4px;
+  color: $accent-color;
+}
+
+.button-send {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.87;
+  letter-spacing: 0.06em;
+
+  padding: 0;
+  border: none;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+  color: $white-title;
+  background-color: $accent-color;
+  width: 200px;
+  height: 50px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  cursor: pointer;
+
+  &:focus {
+    border: 1px solid #000000;
+  }
+}

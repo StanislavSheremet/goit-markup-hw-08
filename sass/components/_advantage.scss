@@ -1,0 +1,124 @@
+.advantage {
+  &-section {
+    padding-top: 94px;
+
+    @media screen and (min-width: 768px) and (max-width: 1199px) {
+      @include fablet-container();
+    }
+
+    @media screen and (max-width: 767px) {
+      @include mobile-container();
+      width: 100%;
+    }
+  }
+
+  &-container {
+    @include container();
+
+    @media screen and (min-width: 768px) and (max-width: 1199px) {
+      max-width: 768px;
+    }
+
+    @media screen and (max-width: 767px) {
+      width: 100%;
+    }
+  }
+
+  &-list {
+    display: flex;
+    justify-content: space-between;
+
+    & > li:not(:last-child) {
+      margin-right: 30px;
+    }
+
+    @media screen and (min-width: 768px) and (max-width: 1199px) {
+      flex-wrap: wrap;
+
+      & > li:not(:last-child) {
+        margin-right: 0px;
+      }
+
+      & > li:nth-child(2n + 1) {
+        margin-right: 30px;
+      }
+
+      & > li:nth-child(-n + 2) {
+        margin-bottom: 30px;
+      }
+    }
+
+    @media screen and (max-width: 767px) {
+      display: inline-block;
+      text-align: center;
+
+      & > li:not(:first-child) {
+        margin-top: 30px;
+      }
+    }
+  }
+
+  &-item {
+    width: 270px;
+
+    @media screen and (min-width: 768px) and (max-width: 1199px) {
+      width: 354px;
+    }
+
+    @media screen and (max-width: 767px) {
+      width: 100%;
+    }
+  }
+
+  &-title {
+    margin: 0;
+    margin-bottom: 10px;
+
+    color: $title-color;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.14;
+    text-transform: uppercase;
+  }
+
+  &-text {
+    margin-top: 0;
+    margin-bottom: 0;
+
+    color: $primary-text-color;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.71;
+
+    @media screen and (max-width: 767px) {
+      text-align: initial;
+    }
+  }
+
+  &-icon {
+    width: 70px;
+    height: 70px;
+  }
+}
+
+.hidden-title {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.bg-icon {
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 120px;
+  background-color: $secondary-background-color;
+  border-radius: 4px;
+}

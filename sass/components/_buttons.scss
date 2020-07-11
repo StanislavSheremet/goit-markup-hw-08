@@ -1,0 +1,117 @@
+/*Кнопка "Заказать услугу"*/
+
+.button {
+  padding: 10px 32px;
+  border-radius: 4px;
+
+  text-decoration: none;
+  color: #ffffff;
+  background-color: $accent-color;
+  font-family: Roboto;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.87;
+  text-align: center;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border-style: none;
+  cursor: pointer;
+
+  &focus {
+    background-color: $accent-color;
+    border: 2px solid #ffffff;
+  }
+}
+
+.order {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: fit-content;
+  outline: transparent;
+}
+
+/*Кнопка "Подписаться"*/
+.button-subsribe {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.87;
+
+  padding: 0;
+  border: none;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+  color: $white-title;
+  background-color: $accent-color;
+  width: 200px;
+  height: 50px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  cursor: pointer;
+
+  &:focus {
+    background-color: $accent-color;
+    border: 2px solid #fff;
+  }
+
+  .icon-send {
+    width: 24px;
+    height: 24px;
+    margin-left: 10px;
+  }
+}
+
+/*Кнопка закрытия модального окна*/
+.close-btn {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  border-radius: 50%;
+  padding: 0;
+  border: none;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+  cursor: pointer;
+
+  box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.2), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 1px 3px rgba(0, 0, 0, 0.12);
+
+  &:focus {
+    border: solid 2px #2196f3;
+  }
+
+  &:hover {
+    fill: $accent-color;
+  }
+}
+
+/*Кнопка "Отправить" в модальном окне*/
+.button-send {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.87;
+  letter-spacing: 0.06em;
+
+  padding: 0;
+  border: none;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+  color: $white-title;
+  background-color: $accent-color;
+  width: 200px;
+  height: 50px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  cursor: pointer;
+
+  &:focus {
+    border: 1px solid #000000;
+  }
+}
