@@ -14,13 +14,15 @@
   }
 
   @media screen and (max-width: 767px) {
-    width: 480px;
+    width: 100%;
     padding-left: 15px;
     padding-right: 15px;
+    position: relative;
   }
 }
 
 .primary-logo {
+  display: flex;
   min-width: 141px;
   color: #000000;
   text-decoration: none;
@@ -42,6 +44,8 @@
   }
 
   @media screen and (max-width: 767px) {
+    padding-top: 16px;
+    padding-bottom: 16px;
     font-size: 24px;
     line-height: 1.16;
   }
@@ -49,8 +53,106 @@
 
 /*Ссылки навигации*/
 .navigation {
+  &-container {
+    display: flex;
+    margin-left: 85px;
+    width: 100%;
+    justify-content: space-between;
+
+    @media screen and (max-width: 767px) {
+      @include mobile-container();
+
+      display: block;
+      position: absolute;
+      z-index: 2;
+      top: 59px;
+      left: 0;
+      margin-left: 0;
+      height: auto;
+      text-align: center;
+      background-color: $white-title;
+    }
+  }
+
+  &-open {
+    width: 24px;
+    height: 16px;
+    position: absolute;
+    top: 22px;
+    right: 22px;
+    border: none;
+    background-color: $white-title;
+    display: flex;
+    padding: 0;
+    align-items: center;
+    outline: none;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      display: block;
+      width: 24px;
+      height: 2.67px;
+      background-color: $title-color;
+      @include transition(transform);
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 1px;
+      display: block;
+      width: 24px;
+      height: 2.67px;
+      background-color: $title-color;
+      @include transition(transform);
+    }
+
+    &:hover .open-close,
+    &:hover::before,
+    &:hover::after {
+      background-color: $accent-color;
+    }
+
+    &:hover .open-close {
+      opacity: 0;
+    }
+
+    &:hover::before {
+      transform: rotate(-45deg);
+      top: 50%;
+    }
+
+    &:hover::after {
+      transform: rotate(45deg);
+      top: 50%;
+    }
+
+    .open-close {
+      position: absolute;
+      top: 6px;
+      display: block;
+      width: 24px;
+      height: 2.67px;
+      background-color: $title-color;
+      @include transition(opacity);
+    }
+  }
+}
+
+#menu {
+  display: none;
+}
+
+.navigation {
   display: flex;
   align-items: baseline;
+
+  @media screen and (max-width: 767px) {
+    flex-direction: column;
+    align-items: center;
+  }
 
   @media screen and (min-width: 768px) and (max-width: 1199px) {
     align-items: center;
@@ -58,7 +160,6 @@
 }
 
 .site-nav {
-  margin-left: 85px;
   display: flex;
   a {
     display: block;
@@ -75,6 +176,15 @@
     @include transition(color);
   }
 
+  @media screen and (max-width: 767px) {
+    flex-direction: column;
+    a {
+      padding-top: 0;
+      padding-bottom: 0;
+      font-size: 18px;
+    }
+  }
+
   @media screen and (min-width: 768px) and (max-width: 1199px) {
     margin-left: 80px;
     a {
@@ -85,6 +195,11 @@
 
 .nav-item:not(:last-child) {
   margin-right: 50px;
+
+  @media screen and (max-width: 767px) {
+    margin-bottom: 40px;
+    margin-right: 0;
+  }
 }
 
 .link:hover,
@@ -100,10 +215,19 @@
   height: 4px;
   width: 100%;
   background-color: $accent-color;
+
+  @media screen and (max-width: 767px) {
+    margin-top: 8px;
+  }
 }
 
 .site-contacts {
   display: flex;
+
+  @media screen and (max-width: 767px) {
+    flex-direction: column;
+    align-items: center;
+  }
 
   @media screen and (min-width: 768px) and (max-width: 1199px) {
     display: block;
@@ -117,6 +241,12 @@
 
   &:not(:last-child) {
     margin-right: 50px;
+
+    @media screen and (max-width: 767px) {
+      margin-right: 0;
+      margin-top: 60px;
+      margin-bottom: 16px;
+    }
   }
 
   @media screen and (min-width: 768px) and (max-width: 1199px) {
@@ -139,6 +269,10 @@
   letter-spacing: 0.02em;
 
   @include transition(color);
+
+  @media screen and (max-width: 767px) {
+    font-size: 18px;
+  }
 
   @media screen and (min-width: 768px) and (max-width: 1199px) {
     font-size: 12px;
